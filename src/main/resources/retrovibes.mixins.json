@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.fruityspikes.retrovibes.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "DimensionSpecialEffectsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "client": [
+    "LightTextureMixin"
+  ]
+}

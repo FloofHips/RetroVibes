@@ -1,0 +1,13 @@
+{
+  "itemGroup.retrovibes": "Example Mod Tab",
+  "block.retrovibes.example_block": "Example Block",
+  "item.retrovibes.example_item": "Example Item",
+
+  "retrovibes.configuration.title": "Retro Vibes Configs",
+  "retrovibes.configuration.section.retrovibes.common.toml": "Retro Vibes Configs",
+  "retrovibes.configuration.section.retrovibes.common.toml.title": "Retro Vibes Configs",
+  "retrovibes.configuration.items": "Item List",
+  "retrovibes.configuration.logDirtBlock": "Log Dirt Block",
+  "retrovibes.configuration.magicNumberIntroduction": "Magic Number Text",
+  "retrovibes.configuration.magicNumber": "Magic Number"
+}
