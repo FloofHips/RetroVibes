@@ -1,24 +1,17 @@
 package com.fruityspikes.retrovibes.mixin;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
-import net.neoforged.neoforge.client.extensions.IDimensionSpecialEffectsExtension;
+import net.minecraft.client.renderer.DimensionSpecialEffects;
+import net.minecraftforge.client.extensions.IForgeDimensionSpecialEffects;
 import org.joml.Vector3f;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
 import java.awt.*;
 
-@Mixin(IDimensionSpecialEffectsExtension.class)
-public interface DimensionSpecialEffectsMixin {
+@Mixin(DimensionSpecialEffects.class)
+public class DimensionSpecialEffectsMixin implements IForgeDimensionSpecialEffects {
 
-    @Inject(method = "adjustLightmapColors", at = @At(value = "HEAD"), cancellable = true)
-    private void adjustLightmapColors(ClientLevel level, float partialTicks, float skyDarken, float blockLightRedFlicker, float skyLight, int pixelX, int pixelY, Vector3f colors, CallbackInfo ci) {
-
+    @Override
+    public void adjustLightmapColors(ClientLevel level, float partialTicks, float skyDarken, float skyLight, float blockLight, int pixelX, int pixelY, Vector3f colors) {
         int r = (int)(colors.x() * 255);
         int g = (int)(colors.y() * 255);
         int b = (int)(colors.z() * 255);
@@ -34,7 +27,6 @@ public interface DimensionSpecialEffectsMixin {
         float z = color[2] / 255.0f;
 
         colors.set(x, y, z);
-        ci.cancel();
     }
 
     private static float[] rgbToHsl(int r, int g, int b) {
